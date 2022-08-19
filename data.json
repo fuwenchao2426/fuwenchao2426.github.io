@@ -1,0 +1,29 @@
+{
+    "title": "列表数据",
+    "data": [
+        {
+            "name": "暴力猴",
+            "img": "/monkey/favicon.ico",
+            "text": "用户自定义脚本,支持在任意网站中执行自定义的js脚本。",
+            "url": "/monkey/"
+        },
+        {
+            "name": "色卡",
+            "img": "/colorcard/favicon.ico",
+            "text": "网站配色色卡,点击复制。颜色数据存在json中,自动展示色卡,flex布局。",
+            "url": "/colorcard/"
+        },
+        {
+            "name": "暴力猴",
+            "img": "/monkey/favicon.ico",
+            "text": "用户自定义脚本,支持在任意网站中执行自定义的js脚本。",
+            "url": "/monkey/"
+        },
+        {
+            "name": "暴力猴",
+            "img": "/monkey/favicon.ico",
+            "text": "用户自定义脚本,支持在任意网站中执行自定义的js脚本。",
+            "url": "/monkey/"
+        }
+    ]
+}
