@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>暴力猴脚本</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        $(function () {
+            path = `http://192.168.30.150/monkey/`;
+            names = ["首页—电商罗盘", "电商罗盘-直播列表", "直播列表-数据大屏", "抖音数据大屏_专业版"];
+            for (i = 0; i < names.length; i++) {
+                $("body").append(`<div class="li"><div class="name">${names[i]}</div><div class="url">${path + names[i] + ".user.js"}</div></div>`);
+            }
+
+            //点击某一个li，复制该li的url
+            $(".li").click(function () {
+                var url = $(this).find(".url").text();
+                $('body').append(`<input id="url" value="${url}">`);
+                $("#url").select();
+                document.execCommand("copy");
+                $("#url").remove();
+                alert("已复制");
+
+                console.log(url);
+
+                //跳转
+                window.open(url);
+
+            });
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
