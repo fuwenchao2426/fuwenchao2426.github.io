@@ -14,10 +14,10 @@
             "url": "/colorcard/"
         },
         {
-            "name": "暴力猴",
-            "img": "/monkey/favicon.ico",
-            "text": "用户自定义脚本,支持在任意网站中执行自定义的js脚本。",
-            "url": "/monkey/"
+            "name": "我在B站学编程",
+            "img": "/test/favicon.ico",
+            "text": "Bootstrap模板练习。",
+            "url": "/test/"
         },
         {
             "name": "暴力猴",
