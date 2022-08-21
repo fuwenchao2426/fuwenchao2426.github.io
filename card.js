@@ -10,7 +10,7 @@ $.getJSON("/data.json", function (d) {
         fimg = val.img;
         ftext = val.text;
         mb = `
-        <div class="col mb-2">
+        <div class="col-md-6 col-lg-3">
         <a href="${furl}" class="text-decoration-none">
             <div class="fcard container shadow-sm overflow-hidden p-0">
                 <div class="col fheader bg-warning text-center">${fname}</div>
