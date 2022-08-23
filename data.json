@@ -20,10 +20,10 @@
             "url": "/test/"
         },
         {
-            "name": "暴力猴",
-            "img": "/monkey/favicon.ico",
-            "text": "用户自定义脚本,支持在任意网站中执行自定义的js脚本。",
-            "url": "/monkey/"
+            "name": "3D Print UI",
+            "img": "/3dprint/img/3dprint.jpg",
+            "text": "3D打印机移动端UI",
+            "url": "/3dprint/"
         }
     ]
 }
