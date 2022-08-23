@@ -8,5 +8,24 @@
 }
 
 #pills-tab{
-    background-color: var(--bs-gray-dark);
+    background-color: #1d1d1d;
+}
+
+.bg-d1{
+    background: #121212;
+}
+.bg-d2{
+    background: #1d1d1d;
+}
+
+.rounded{
+    border-radius: 1rem !important;
+}
+
+.nav-link{
+    color: #fff !important;
+}
+
+.nav-link.active{
+    border-radius: 2rem;
 }

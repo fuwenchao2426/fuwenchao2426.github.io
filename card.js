@@ -4,6 +4,7 @@ var furl, fname, fimg, ftext;
 
 $.getJSON("/data.json", function (d) {
     console.log(d.data);
+    
     $.each(d.data, function (key, val) {
         fname = val.name;
         furl = val.url;

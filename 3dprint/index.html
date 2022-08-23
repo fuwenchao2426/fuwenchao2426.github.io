@@ -8,13 +8,13 @@
     <title>3D Print UI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
     <ul class="nav nav-pills fixed-bottom nav-fill" id="pills-tab" role="tablist">
-        <li class="nav-item btn text-light">CR-10</li>
+        <li class="btn text-light">CR-10</li>
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
                 type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i
@@ -22,21 +22,76 @@
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-print-tab" data-bs-toggle="pill" data-bs-target="#pills-print"
-                type="button" role="tab" aria-controls="pills-print" aria-selected="false"><i class="bi bi-file-earmark-minus"></i>Print</button>
+                type="button" role="tab" aria-controls="pills-print" aria-selected="false"><i
+                    class="bi bi-file-earmark-minus"></i>Print</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-ready-tab" data-bs-toggle="pill" data-bs-target="#pills-ready"
-                type="button" role="tab" aria-controls="pills-ready" aria-selected="false"><i class="bi bi-gear"></i>Ready</button>
+                type="button" role="tab" aria-controls="pills-ready" aria-selected="false"><i
+                    class="bi bi-gear"></i>Ready</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-settings-tab" data-bs-toggle="pill" data-bs-target="#pills-settings"
-                type="button" role="tab" aria-controls="pills-settings" aria-selected="false"><i class="bi bi-grid"></i>Settings</button>
+                type="button" role="tab" aria-controls="pills-settings" aria-selected="false"><i
+                    class="bi bi-grid"></i>Settings</button>
         </li>
 
     </ul>
 
-    <div class="tab-content ftab bg-dark text-light" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">home
+    <div class="tab-content ftab bg-d1 text-light" id="pills-tabContent">
+        <div class="tab-pane fade show active h-100" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="h-100 p-5">
+                <div class="row h-100 gap-4">
+                    <div class="col-12 col-md-3 bg-d2 rounded p-2">
+                        <h3>Print File Name</h3>
+                        <div class="circleChart" id="circle1"></div>
+                    </div>
+
+                    <div class="col-12 col-md-8">
+                        <div class="row h-75 bg-d2 rounded p-2">
+                            <div class="row">
+                                <div class="col-10">
+                                    <h3>Print concave</h3>
+                                </div>
+                                <div class="col-2">
+                                    <h3><i class="bi bi-chevron-right"></i></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-3">
+                                    <div id="c1" class="cc"></div>
+                                    <div class="cct text-center small mt-2">170/200℃</div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div id="c2" class="cc"></div>
+                                    <div class="cct text-center small mt-2">60%</div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div id="c3" class="cc"></div>
+                                    <div class="cct text-center small mt-2">60/60</div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div id="c4" class="cc"></div>
+                                    <div class="cct text-center small mt-2">0.1mm</div>
+                                </div>
+                            </div>
+                            <div class="row"></div>
+                        </div>
+
+                        <div class="row d-block" style="height: 5%;"></div>
+                        <div class="row gap-3" style="height: 20%;">
+                            <div
+                                class="col bg-d2 rounded-pill rounded-end d-flex justify-content-center align-items-center">
+                                <h3><i class="bi bi-stop-fill"></i> Stop</h3>
+                            </div>
+                            <div
+                                class="col bg-d2 rounded-pill rounded-start d-flex justify-content-center align-items-center">
+                                <h3><i class="bi bi-pause-fill"></i>Pause</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="pills-print" role="tabpanel" aria-labelledby="pills-print-tab">print</div>
         <div class="tab-pane fade" id="pills-ready" role="tabpanel" aria-labelledby="pills-ready-tab">ready</div>
@@ -45,9 +100,67 @@
     </div>
 
 
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./RoundProgressBar/dist/circleChart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#circle1").circleChart({
+                color: "#3459eb",
+                backgroundColor: "#121212",
+                background: true,
+                speed: 1500,
+                widthRatio: 0.2,
+                value: 60,
+                unit: 'percent',
+                counterclockwise: false,
+                size: 150,
+                startAngle: 75,
+                animate: true,
+                backgroundFix: true,
+                lineCap: "round",
+                animation: "easeInOutCubic",
+                text: "60%",
+                redraw: false,
+                cAngle: 0,
+                textCenter: true,
+                textSize: false,
+                textWeight: 'bold',
+                textFamily: 'sans-serif',
+                relativeTextSize: 1 / 6,
+                autoCss: true,
+                onDraw: false
+            });
+            console.log($("#circle1"));
+
+            $(".cc").circleChart({
+                size: 70,
+                relativeTextSize: 1 / 3,
+                textFamily: "bootstrap-icons"
+            });
+            $('#c1').circleChart({
+                text: "&#xF346;",
+                color: "#fe3d3e",
+            });
+            $('#c2').circleChart({
+                text: "&#xF580;",
+                color: "#01c853"
+            });
+            $('#c3').circleChart({
+                text: "&#xF7EB;",
+                color: "#ff9000"
+            });
+            $('#c4').circleChart({
+                text: "&#xF576;",
+                color: "#661fff"
+            });
+
+        });
+
+    </script>
+
 </body>
 
 </html>
