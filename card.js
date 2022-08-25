@@ -1,7 +1,6 @@
 var furl, fname, fimg, ftext;
 
 
-
 $.getJSON("/data.json", function (d) {
     console.log(d.data);
     
@@ -11,17 +10,15 @@ $.getJSON("/data.json", function (d) {
         fimg = val.img;
         ftext = val.text;
         mb = `
-        <div class="col-md-6 col-lg-3">
-        <a href="${furl}" class="text-decoration-none">
-            <div class="fcard container shadow-sm overflow-hidden p-0">
-                <div class="col fheader bg-warning text-center">${fname}</div>
-                <div class="row h-100 p-3 bg-primary bg-opacity-50 text-white">
-                    <div class="col-4"><img src="${fimg}" alt="" class="pic img-fluid bg-white"></div>
-                    <div class="col-8">${ftext}</div>
+        <a class="col-12 col-sm-6 col-lg-4 col-xxl-3 mb-3 text-decoration-none" href="${furl}">
+            <div class="card text-dark bg-info overflow-hidden" style="border-radius: 1rem;">
+                <h5 class="card-header bg-warning text-center fw-bolder">${fname}</h5>
+                <img src="${fimg}" class="card-img-top p-2" alt="img" style="height: 9rem;">
+                <div class="card-body" style="height: 6rem;>
+                    <p class="card-text">${ftext}</p>
                 </div>
             </div>
         </a>
-        </div>
         `;
         $(".lbbox").append(mb);
     });
