@@ -1,0 +1,21 @@
+
+.num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2vw;
+    font-size: 1vw;
+    font-weight: bolder;
+    color: #fff;
+    height: 6vw;
+}
+
+.tt {
+    font-size: 30vw;
+    line-height: 500px;
+    font-weight: bolder;
+    padding: 20px;
+    text-shadow: 10px 7px 12px #a58484;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
