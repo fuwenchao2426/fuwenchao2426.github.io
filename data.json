@@ -24,6 +24,13 @@
             "img": "/3dprint/img/3dprint.jpg",
             "text": "3D打印机移动端UI",
             "url": "/3dprint/"
+        },
+        {
+            "name": "温度颜色",
+            "img": "/tempcolor/img/tempcolor.jpg",
+            "text": "随温度变化颜色",
+            "url": "/tempcolor/"
         }
+
     ]
 }
