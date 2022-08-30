@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航菜单栏</title>
+    <link rel="stylesheet" href="../../css/tab.line.css">
+    <link rel="参考" href="https://www.bilibili.com/video/BV1y341147AV">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="active"><a href="#"><span class="icon fa fa-home"></span><span class="text">主页</span></a></li>
+            <li><a href="#"><span class="icon fa fa-user"></span><span class="text">好友</span></a></li>
+            <li><a href="#"><span class="icon fa fa-comments"></span><span class="text">消息</span></a></li>
+            <li><a href="#"><span class="icon fa fa-picture-o"></span><span class="text">相册</span></a></li>
+            <li><a href="#"><span class="icon fa fa-cog"></span><span class="text">设置</span></a></li>
+            <div class="indicator"></div>
+        </ul>
+    </nav>
+    <script src="https://kit.fontawesome.com/2e6e83b417.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $("nav li").click(function (d) {
+            i = $('nav li').index(this);
+            a = $(d.target);
+            e = a.parents('li');
+            $('nav li').removeClass('active');
+            e.addClass('active');
+        })
+
+    </script>
+</body>
+
+</html>

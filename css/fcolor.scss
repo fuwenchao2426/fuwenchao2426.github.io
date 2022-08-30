@@ -30,15 +30,25 @@ $grey:#303133,
 #ebeef5,
 #f2f6fc;
 
-
-
-
 @mixin colorfunc($attrname, $attr, $arry, $name) {
     @each $color in $arry {
         $i: index($arry, $color);
 
         .#{$attrname}-#{$name}-#{$i} {
             #{$attr}: $color;
+        }
+    }
+}
+
+@mixin forfunc($attrname, $attr, $num, $half) {
+    @for $var from 0 to $num {
+        .#{$attrname}-#{$var} {
+            @if $half==1 {
+                #{$attr}: #{$var/2}rem;
+            }
+            @if $half==0 {
+                #{$attr}: #{$var}rem;
+            }
         }
     }
 }
@@ -54,3 +64,19 @@ $grey:#303133,
 @include colorfunc("text", "color", $yellow, "yellow");
 @include colorfunc("text", "color", $red, "red");
 @include colorfunc("text", "color", $grey, "grey");
+
+@include forfunc("r", "border-radius", 10, 1);
+@include forfunc("w", "width", 10, 1);
+@include forfunc("h", "height", 10, 1);
+
+
+
+@mixin makecolor($name,$color) {
+    @for $var from 1 to 9 {
+        .#{$name}-#{$var} {
+            color: mix(white, $color, $var*10);
+        }
+    }
+}
+
+@include makecolor("b", #409eff);

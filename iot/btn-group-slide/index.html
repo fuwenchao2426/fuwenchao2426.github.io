@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑动按钮组</title>
+    <link rel="stylesheet" href="../../css/btn-group-slide.line.css">
+</head>
+
+<body>
+    <div class="slide">
+        <i></i>
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+        <div>04</div>
+        <div>05</div>
+        <div>06</div>
+    </div>
+    <script src="https://kit.fontawesome.com/2e6e83b417.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('.slide>div').on("click", function (d) {
+            var i = $('.slide>div').index(this);
+            e = $(".slide>i");
+            e.css("left", i * 100 + 10 + "px");
+            $('.slide>div').css("color", "#000");
+            $(this).css("color", "#fff");
+        })
+    </script>
+</body>
+
+</html>

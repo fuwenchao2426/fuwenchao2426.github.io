@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    font-size: 16px;
+
+    &:after {
+        content: "导航菜单栏";
+        font-size: 3em;
+        position: absolute;
+        top: 20%;
+        color: #eee;
+    }
+}
+
+nav {
+    position: relative;
+    width: 400px;
+    height: 70px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    ul {
+        display: flex;
+        width: 350px;
+
+        li {
+            position: relative;
+            list-style: none;
+            width: 70px;
+            height: 70px;
+            z-index: 1;
+
+            a {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+                text-decoration: none;
+
+                .icon {
+                    position: relative;
+                    display: block;
+                    line-height: 75px;
+                    font-size: 1.5em;
+                    text-align: center;
+                    transition: .5s;
+                    color: #222;
+                }
+
+                .text {
+                    position: absolute;
+                    color: #222;
+                    font-weight: bold;
+                    font-size: 0.75em;
+                    transition: .5s;
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+            }
+
+            &.active {
+
+                a {
+
+                    .icon {
+                        transform: translateY(-35px);
+                    }
+
+                    .text {
+                        opacity: 1;
+                        transform: translateY(10px);
+                    }
+                }
+            }
+
+            @for $i from 0 to 9 {
+                &:nth-child(#{$i+1}).active~.indicator {
+                    transform: translateX(calc(70px * #{$i}));
+                }
+            }
+        }
+
+        .indicator {
+            position: absolute;
+            top: -50%;
+            width: 70px;
+            height: 70px;
+            background-color: lime;
+            border-radius: 50%;
+            border: 6px solid #222;
+            transition: .5s;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -22px;
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                border-top-right-radius: 20px;
+                box-shadow: 0 -10px 0 0 #222;
+            }
+
+            &:after {
+                left: unset;
+                right: -22px;
+                border-top-right-radius: 0;
+                border-top-left-radius: 20px;
+            }
+        }
+    }
+}

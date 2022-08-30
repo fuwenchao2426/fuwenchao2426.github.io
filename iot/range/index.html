@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑块条</title>
+    <link rel="stylesheet" href="../../css/range.line.css">
+</head>
+
+<body>
+    <div class="box">
+        <input type="range" value="0" min="0" max="100" onmousemove="rangSlider(this,this.value)">
+        <span class="rangeValue">0</span>
+    </div>
+
+    <script src="https://kit.fontawesome.com/2e6e83b417.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function rangSlider(a,v) {
+            $(a).next().text(v);
+        }
+    </script>
+</body>
+
+</html>

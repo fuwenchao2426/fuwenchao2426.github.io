@@ -1,0 +1,70 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #edf1f4;
+  font-size: 16px;
+}
+
+body:after {
+  content: "滑块条";
+  font-size: 3em;
+  position: absolute;
+  top: 20%;
+  color: #000;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 40px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), #edf1f4);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 20px #fff;
+}
+
+.box input {
+  width: 400px;
+  height: 20px;
+  appearance: none;
+  background-color: #edf1f4;
+  outline: none;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1), 5px 5px 10px #fff, inset 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box input::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid skyblue;
+  box-shadow: -410px 0 0 400px #27a0ff;
+}
+
+.box .rangeValue {
+  position: relative;
+  text-align: center;
+  width: 60px;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #27a0ff;
+  margin-left: 15px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 5px rgba(255, 255, 255, 0.1);
+}

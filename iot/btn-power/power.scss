@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f2f2f;
+
+    &:after {
+        content: "电源按钮";
+        font-size: 3em;
+        position: absolute;
+        top: 20%;
+        color: #fff;
+    }
+
+}
+
+label {
+    font-size: 16px;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    background-color: #222;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span.btn {
+        width: 100%;
+        height: 100%;
+        // background-color: red;
+        border-radius: 50%;
+        box-shadow:
+            0 .2em .3em,
+            inset -.2em -.5em .6em .1em rgba(#000, .5),
+            inset .1em .3em .4em .05em rgba(#fff, .5),
+            0 .1em .3em #111,
+            0 .1em .5em #222,
+            0 .1em .6em #000;
+        transition: all .5s;
+    }
+
+    i {
+        position: absolute;
+        font-size: 5em;
+        transition: all .5s;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked~i {
+        color: rgb(166, 252, 255);
+        text-shadow:
+            0 0 .1em rgb(57, 154, 192),
+            0 0 1em rgb(45, 131, 165);
+    }
+
+}
