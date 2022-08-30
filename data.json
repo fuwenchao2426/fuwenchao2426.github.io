@@ -30,6 +30,30 @@
             "img": "/tempcolor/img/tempcolor.jpg",
             "text": "随温度变化颜色",
             "url": "/tempcolor/"
+        },
+        {
+            "name": "组件-导航菜单栏",
+            "img": "/img/导航菜单栏.png",
+            "text": "有趣的导航菜单栏",
+            "url": "/iot/tab/"
+        },
+        {
+            "name": "组件-滑动按钮组",
+            "img": "/img/滑动按钮组.png",
+            "text": "带有滑块的按钮组",
+            "url": "/iot/btn-group-slide/"
+        },
+        {
+            "name": "组件-电源按钮",
+            "img": "/img/电源按钮.jpg",
+            "text": "有趣的导航菜单栏",
+            "url": "/iot/btn-power/"
+        },
+        {
+            "name": "组件-滑块条",
+            "img": "/img/滑块条.jpg",
+            "text": "有趣的导航菜单栏",
+            "url": "/iot/range/"
         }
 
     ]

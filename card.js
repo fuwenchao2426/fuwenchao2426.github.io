@@ -14,7 +14,7 @@ $.getJSON("/data.json", function (d) {
             <div class="card text-dark bg-info1 bg-dark overflow-hidden shadow" style="border-radius: 1rem;">
                 <h5 class="card-header bg-yellow-1 text-center fw-bolder">${fname}</h5>
                 <img src="${fimg}" class="card-img-top p-2" alt="img" style="height: 10rem;">
-                <div class="card-body" style="height: 6rem;>
+                <div class="card-body" style="height: 6rem;">
                     <p class="card-text">${ftext}</p>
                 </div>
             </div>
