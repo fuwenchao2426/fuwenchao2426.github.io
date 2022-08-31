@@ -54,6 +54,12 @@
             "img": "/img/滑块条.jpg",
             "text": "滑块条",
             "url": "/module/range/"
+        },
+        {
+            "name": "组件-圆形进度条",
+            "img": "/img/圆形进度条.jpg",
+            "text": "圆形进度条",
+            "url": "/module/progress-bar-circle/"
         }
 
     ]
