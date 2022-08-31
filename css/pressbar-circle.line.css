@@ -1,6 +1,0 @@
-@charset "UTF-8";
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body { height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #2f2f2f; }
-
-body:after { content: "圆形进度条"; font-size: 3em; position: absolute; top: 20%; color: #fff; }
