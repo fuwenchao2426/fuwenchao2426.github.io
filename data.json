@@ -60,7 +60,12 @@
             "img": "/img/圆形进度条.jpg",
             "text": "圆形进度条",
             "url": "/module/progress-bar-circle/"
+        },
+        {
+            "name": "组件-多层悬浮动画",
+            "img": "/img/多层悬浮动画.jpg",
+            "text": "多层悬浮动画",
+            "url": "/module/multi-layer/"
         }
-
     ]
 }
