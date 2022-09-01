@@ -3,27 +3,45 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://compass.jinritemai.com/screen/live/shop*
 // @grant       GM_addStyle
-// @version     1.1.15
+// @version     1.1.16
 // @author      fuwenchao
 // @description 2022/7/19 21:02:40
 // @icon        https://lf1-fe.ecombdstatic.com/obj/eden-cn/upqphj/homepage/icon.svg
 // @run-at      document-start
 // @require     https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
-// @downloadURL		http://192.168.30.150/monkey/抖音数据大屏_专业版.user.js
+// @downloadURL		http://192.168.30.150/fuwenchao2426.github.io/monkey/抖音数据大屏_专业版.user.js
 
 // ==/UserScript==
 
+var moneyBar = ".container--n-Nt-";//金额栏
+var talkBar = ".container--3klot";//评论栏
+var moneyTitle = ".name--Z2MF5";//金额标题
+var moneyPlant = ".create--JrDTU";//金额计划
+var openLive = ".button--MreHt";//打开直播
+var onlyOld = "span:contains('只看老客')";//只看老客
+var userName = ".name--5jIOm";//用户名
+var userText = ".msg--i5SPb";//用户评论
+var talk = ".comment--FnhEx";//单条评论
+var talkBox = ".comments--4BHpj";//评论容器
+var volText = ".name--15gWK";//参数文本提示
+var volBox = ".container--wSBB3";//单个参数容器
+var volBoxBox = ".indicators--v8b1W";//总参数容器
+var moneyBox = ".hugeNumberContainer--7-ip-";//金额容器
+var fffbar = ".container";
 
 
-GM_addStyle(".hugeNumberContainer--QpwE4{display:flex !important;justify-content:center !important;align-items:center !important;}");//金额居中
+GM_addStyle(`${moneyBox}{display:flex !important;justify-content:center !important;align-items:center !important;}`);//金额居中
 GM_addStyle("#F{width:100vw;height:100vh;display:grid;grid-template-rows:minmax(200px,1fr) 2fr;padding:8px;grid-gap:8px;}");//#F
-GM_addStyle(".container--A3kIS{height:100%;padding:8px 32px !important;display:grid !important;grid-template-rows:minmax(80px,1fr) 3fr}");//
-GM_addStyle(".indicators--hGVpR{width:100%;display:grid !important;grid-template-columns:1fr 1fr 1fr !important;grid-gap:8px !important}");//参数排列
-GM_addStyle(".container--wSBB3{font-size:1.2em !important;line-height:1em !important;width:100px !important;height:60px !important;}");//参数
-GM_addStyle(".name--15gWK span{font-size:.8em !important;line-height:1em !important}");//文本提示
+GM_addStyle(`${moneyBar}{height:100%;padding:8px 32px !important;display:grid !important;grid-template-rows:minmax(80px,1fr) 3fr}`);//
+GM_addStyle(`${volBoxBox}{width:100%;display:grid !important;grid-template-columns:1fr 1fr 1fr !important;grid-gap:8px !important}`);//总参数容器排列
+GM_addStyle(`${volBox}{font-size:1.2em !important;line-height:1em !important;width:100px !important;height:60px !important;}`);//单个参数容器
+GM_addStyle(`${volText} span{font-size:.8em !important;line-height:1em !important}`);//文本提示
 GM_addStyle(".zh-cn{font-size:.6em !important;line-height:1em !important}");//中文 分钟
-GM_addStyle(".comment--Aqotc:last-child span{font-size:2em !important;}");//最后一条评论 放大
-GM_addStyle(".comments--3mBF8{max-height:50vh}");//聊天最大高度
+GM_addStyle(`${talk}:last-child span{font-size:2em !important;}`);//最后一条评论 放大
+GM_addStyle(`${talkBox}{max-height:50vh}`);//聊天最大高度
+
+
+
 
 
 //jquery 判断元素是否存在
@@ -51,38 +69,40 @@ function waitForExist(selector, callback) {
     console.info('移除浏览器插件提示');
   });
 
-  waitForExist('.container--LHFN1', function () { //等待页面加载完成
+  waitForExist(talkBar, function () { //等待页面加载完成
     //#root 前 插入 #F
     $("<div id='F'></div>").insertBefore('#root');
-    $('#F').append($('.container--A3kIS'));
-    $('#F').append($('.container--LHFN1'));
+    $('#F').append($(moneyBar));
+    $('#F').append($(talkBar));
     $('#root').remove();
 
-    $('.name--95sRH').remove();//金额
-    $('.target--7laNQ').remove();//计划
-    $('.button--rpOBT').remove();//打开直播
-    $('.switch--YkDR0').remove();//只看老用户
+    $(moneyTitle).remove();//金额
+    $(moneyPlant).remove();//计划
+    $(openLive).remove();//打开直播
+    $(onlyOld).remove();//只看老用户
+
+    $(volBoxBox).append($(volBox));
   });
 
-  waitForExist('.comment--Aqotc', function () { //等待评论
+  waitForExist(talk, function () { //等待评论
 
-    $(".container--LHFN1").on("click", ".comment--Aqotc", function () {//点击评论
-      fname=makeUsername($(".name--gZyuC", this).text());
-      ftext=makeUsertext($(".name--gZyuC", this).next().text());
+    $(talkBox).on("click", talk, function () {//点击评论
+      fname = makeUsername($(userName, this).text());
+      ftext = makeUsertext($(userName, this).next().text());
       readText(fname + ftext);
     });
 
     var num = 0;
-    //每100ms 检测一次 .comment--Aqotc 个数
+    //每100ms 检测一次 talk 个数
     var TimerTlak = setInterval(() => {
-      length = $('.comment--Aqotc').length;
+      length = $(talk).length;
       if (length > num) {
-        username = makeUsername($('.name--gZyuC').eq(num).text());
-        usertext = makeUsertext($('.name--gZyuC').next().eq(num).text());
+        username = makeUsername($(userName).eq(num).text());
+        usertext = makeUsertext($(userName).next().eq(num).text());
 
         readText(username + usertext);
-        //.comments--3mBF8 滚动条滚动到底部
-        $('.comments--3mBF8').scrollTop($('.comments--3mBF8')[0].scrollHeight);
+        //talkBox 滚动条滚动到底部
+        $(talkBox).scrollTop($(talkBox)[0].scrollHeight);
         num++;
       }
     }, 100);
