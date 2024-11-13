@@ -18,9 +18,9 @@
         //获取参数port
         var reg = /[&?]port=(\d{1,5})&?/;
         var port = e.search.match(reg)[1];
-        //跳转
-        url = `${e.protocol}//${host}:${port}/${e.pathname}${e.search}`;
         console.log(port);
+        //跳转
+        url = `http://${host}:${port}`;
         console.log(url);
 
     </script>
