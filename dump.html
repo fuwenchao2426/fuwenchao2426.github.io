@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中间页</title>
+</head>
+
+<body>
+    <h1 style="margin: 5em auto;text-align: center;">跳转中...</h1>
+
+    <script>
+        host = '[2409:8a15:775d:d3f0:6fcd:3d55:c653:c85e]';
+        e = window.location;
+        s = window.location.search;
+
+        //获取参数port
+        var reg = /[&?]port=(\d{1,5})&?/;
+        var port = e.search.match(reg)[1];
+        //跳转
+        url = `${e.protocol}//${host}:${port}/${e.pathname}${e.search}`;
+        console.log(port);
+        console.log(url);
+
+    </script>
+</body>
+
+</html>
